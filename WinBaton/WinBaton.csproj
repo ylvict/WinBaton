@@ -43,11 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\Button.cs" />
+    <Compile Include="Control\IControl.cs" />
     <Compile Include="Control\MenuBar.cs" />
     <Compile Include="Desktop.cs" />
     <Compile Include="Control\Text.cs" />
     <Compile Include="Control\Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Converter.cs" />
     <Compile Include="Service\Proc.cs" />
     <Compile Include="Service\Sync.cs" />
   </ItemGroup>

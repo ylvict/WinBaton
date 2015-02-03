@@ -10,7 +10,7 @@ using WinBaton.Service;
 
 namespace WinBaton.Control
 {
-    public class Window : DynamicObject
+    public class Window : DynamicObject, IControl
     {
         private AutomationElement window = null;
         public Window(int procId)
@@ -53,17 +53,17 @@ namespace WinBaton.Control
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            var obj = this.window.FindAll(TreeScope.Descendants,
+            var ctrlList = this.window.FindAll(TreeScope.Descendants,
                 new PropertyCondition(AutomationElement.AutomationIdProperty, binder.Name));
-            if (obj.Count <= 0)
+            if (ctrlList.Count <= 0)
             {
                 throw new KeyNotFoundException("Cannot found element by autoId.");
             }
-            if (obj.Count > 1)
+            if (ctrlList.Count > 1)
             {
                 throw new DuplicateWaitObjectException("Duplicate item found by autoId.");
             }
-            result = obj[0];
+            result = Converter.ConverUIAElementToBatonCtrl(ctrlList[0]);
             return true;
         }
 
@@ -73,7 +73,8 @@ namespace WinBaton.Control
             for (int i = 0; i < binder.CallInfo.ArgumentNames.Count; i++)
             {
                 var propertyName = binder.CallInfo.ArgumentNames[i];
-                var property = (AutomationProperty)typeof(AutomationElement).GetField(propertyName).GetValue(null);
+                var property = (AutomationProperty)typeof(AutomationElement)
+                    .GetField(propertyName + "Property").GetValue(null);
                 cond.Add(new PropertyCondition(property, indexes[i]));
             }
 
@@ -86,54 +87,7 @@ namespace WinBaton.Control
                     .ToList();
                 return false;
             });
-            result = ctrlList
-                .Select(x =>
-                {
-                    string ctrlName = x.Current.ControlType.ProgrammaticName.Split('.').Last().Trim();
-                    var obj = Activator.CreateInstance(Type.GetType("WinBaton.Control." + ctrlName), x);
-                    return obj;
-                    #region controls
-                    //  *"Button"
-                    //  "Calendar"
-                    //  "CheckBox"
-                    //  "ComboBox"
-                    //  "Custom"
-                    //  "DataGrid"
-                    //  "DataItem"
-                    //  "Document"
-                    //  "Edit"
-                    //  "Group"
-                    //  "Header"
-                    //  "HeaderItem"
-                    //  "Hyperlink"
-                    //  "Image"
-                    //  "List"
-                    //  "ListItem"
-                    //  "Menu"
-                    //  *"MenuBar"
-                    //  "MenuItem"
-                    //  "Pane"
-                    //  "ProgressBar"
-                    //  "RadioButton"
-                    //  "ScrollBar"
-                    //  "Separator"
-                    //  "Slider"
-                    //  "Spinner"
-                    //  "SplitButton"
-                    //  "StatusBar"
-                    //  "Tab"
-                    //  "TabItem"
-                    //  "Table"
-                    //  *"Text"
-                    //  "Thumb"
-                    //  "TitleBar"
-                    //  "ToolBar"
-                    //  "ToolTip"
-                    //  "Tree"
-                    //  "TreeItem"
-                    //  *"Window"
-                    #endregion
-                }).ToList();
+            result = ctrlList.Select(x => Converter.ConverUIAElementToBatonCtrl(x)).ToList();
             return true;
         }
     }

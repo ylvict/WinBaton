@@ -7,7 +7,7 @@ namespace WinBaton.Service
 {
     public static class Sync
     {
-        public static void TryWaitFor(Func<bool> action, int timeout = 30 * 1000, int interval = 500)
+        public static bool TryWaitFor(Func<bool> action, int timeout = 30 * 1000, int interval = 500)
         {
             var startTime = DateTime.Now;
             Exception ex = null;
@@ -24,8 +24,9 @@ namespace WinBaton.Service
                 if (currentSpan >= TimeSpan.FromMilliseconds(timeout)) break;
                 System.Threading.Thread.Sleep(interval);
             }
-            if (finalResult) return;
+            if (finalResult) return true;
             if (ex != null) throw ex;
+            return false;
         }
     }
 }

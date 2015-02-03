@@ -6,7 +6,7 @@ using System.Windows.Automation;
 
 namespace WinBaton.Control
 {
-    public class MenuBar
+    public class MenuBar : IControl
     {
         private AutomationElement menubar = null;
         public MenuBar(AutomationElement menubar)
