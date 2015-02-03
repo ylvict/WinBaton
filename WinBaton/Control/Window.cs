@@ -53,9 +53,17 @@ namespace WinBaton.Control
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            var obj = this.window.FindFirst(TreeScope.Descendants,
+            var obj = this.window.FindAll(TreeScope.Descendants,
                 new PropertyCondition(AutomationElement.AutomationIdProperty, binder.Name));
-            result = obj.Current.ControlType;
+            if (obj.Count <= 0)
+            {
+                throw new KeyNotFoundException("Cannot found element by autoId.");
+            }
+            if (obj.Count > 1)
+            {
+                throw new DuplicateWaitObjectException("Duplicate item found by autoId.");
+            }
+            result = obj[0];
             return true;
         }
 
