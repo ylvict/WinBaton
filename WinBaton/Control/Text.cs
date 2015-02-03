@@ -5,7 +5,5 @@ using System.Text;
 
 namespace WinBaton.Control
 {
-    class Text : IControl
-    {
-    }
+    class Text : IControl { }
 }

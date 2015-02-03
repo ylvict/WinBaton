@@ -43,8 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\Button.cs" />
+    <Compile Include="Control\Container.cs" />
     <Compile Include="Control\IControl.cs" />
+    <Compile Include="Control\Menu.cs" />
     <Compile Include="Control\MenuBar.cs" />
+    <Compile Include="Control\MenuItem.cs" />
     <Compile Include="Desktop.cs" />
     <Compile Include="Control\Text.cs" />
     <Compile Include="Control\Window.cs" />

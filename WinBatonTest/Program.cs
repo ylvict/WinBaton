@@ -14,7 +14,21 @@ namespace WinBatonTest
         {
             var proc = Process.Start("notepad.exe");
             dynamic win = new Window(proc);
-            var con = win[AutomationId: "MenuBar", ControlType: ControlType.MenuBar];
+
+            var menubar = win.MenuBar;
+            menubar["File"]["Open..."].Invoke();
+            var dialog = win["Open", "#32770", ControlType.Window, LocalizedControlType: "Dialog"];
+            dialog.Close.Click();
+
+            foreach (var item in menubar.Items)
+            {
+                Console.WriteLine(item.Name);
+                var menu = item.Expand();
+                foreach (var m in menu.Items)
+                {
+                    Console.WriteLine("\t" + m.Name);
+                }
+            }
 
             Button btnClose = win.Close;
             btnClose.Click();

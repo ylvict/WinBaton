@@ -10,10 +10,7 @@ namespace WinBaton.Control
     {
         private AutomationElement button = null;
 
-        public Button(AutomationElement button)
-        {
-            this.button = button;
-        }
+        public Button(AutomationElement button) { this.button = button; }
 
         public void Click()
         {
