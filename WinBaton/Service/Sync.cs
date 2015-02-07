@@ -7,8 +7,11 @@ namespace WinBaton.Service
 {
     public static class Sync
     {
+        public static int DefaultTimeout = 30 * 1000;
+
         public static bool TryWaitFor(Func<bool> action, int timeout = 30 * 1000, int interval = 500)
         {
+            timeout = Sync.DefaultTimeout;
             var startTime = DateTime.Now;
             Exception ex = null;
             bool finalResult = false;

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinBaton", "WinBaton\WinBat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A4D50463-89F5-4302-9FB3-D91405996E00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notepad_BasicFunctional", "Notepad_BasicFunctional\Notepad_BasicFunctional.csproj", "{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinBatonTest", "WinBatonTest\WinBatonTest.csproj", "{6C4648BA-68C2-45DB-ACEB-671B32A838AB}"
 EndProject
 Global
@@ -19,6 +21,10 @@ Global
 		{B3AAB722-4BFA-4563-BCC3-5A75148BC7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AAB722-4BFA-4563-BCC3-5A75148BC7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AAB722-4BFA-4563-BCC3-5A75148BC7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C4648BA-68C2-45DB-ACEB-671B32A838AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C4648BA-68C2-45DB-ACEB-671B32A838AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C4648BA-68C2-45DB-ACEB-671B32A838AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -28,6 +34,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6} = {A4D50463-89F5-4302-9FB3-D91405996E00}
 		{6C4648BA-68C2-45DB-ACEB-671B32A838AB} = {A4D50463-89F5-4302-9FB3-D91405996E00}
 	EndGlobalSection
 EndGlobal
