@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30001.183
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinBaton", "WinBaton\WinBaton.csproj", "{B3AAB722-4BFA-4563-BCC3-5A75148BC7EE}"
 EndProject
@@ -43,5 +43,8 @@ Global
 		{7E76FB08-60AC-4C1B-B4DA-192483D8FEE6} = {A4D50463-89F5-4302-9FB3-D91405996E00}
 		{6C4648BA-68C2-45DB-ACEB-671B32A838AB} = {A4D50463-89F5-4302-9FB3-D91405996E00}
 		{8CAF5E06-3B2A-4B45-B7BF-5BA36C2BEF34} = {A4D50463-89F5-4302-9FB3-D91405996E00}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2BC9C71-2549-463D-A178-9735EF1A6752}
 	EndGlobalSection
 EndGlobal

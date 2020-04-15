@@ -12,6 +12,8 @@ namespace WinBaton.Control
 
         public Button(AutomationElement button) { this.button = button; }
 
+        public string Name => button.Current.Name;
+
         public void Click()
         {
             var pattern = (InvokePattern)button.GetCurrentPattern(InvokePattern.Pattern);
