@@ -43,6 +43,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ProgressBar.cs" />
     <Compile Include="Control\Button.cs" />
     <Compile Include="Control\Container.cs" />
     <Compile Include="Control\Document.cs" />
